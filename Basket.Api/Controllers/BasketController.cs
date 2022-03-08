@@ -3,6 +3,7 @@
 
 using System;
 using Basket.Dto;
+using Basket.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -15,18 +16,23 @@ namespace Basket.Api.Controllers
     {
         private readonly ILogger<BasketController> _logger;
         private readonly IConfiguration _configuration;
+        private readonly IPaymentService _paymentService;
 
-        public BasketController(ILogger<BasketController> logger, IConfiguration configuration)
+        public BasketController(ILogger<BasketController> logger, IConfiguration configuration, IPaymentService paymentService)
         {
             _logger = logger;
             _configuration = configuration;
+            _paymentService = paymentService;
         }
 
         [HttpGet()]
-        public ActionResult GetPayments()
+        public ActionResult GetBaskets()
         {
             var response = new BasketDto() {BasketId = Guid.NewGuid(), CreateDate = DateTime.Now};
             var message=_configuration.GetSection("PaymentGateway:Message").Value;
+            var payment=_paymentService.GetPayments().Result;
+            response.PaymentId = payment.PaymentId;
+            //Call Payment Service
             response.Message = message;
             return Ok(response);
         }

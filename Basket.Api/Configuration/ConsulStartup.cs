@@ -3,11 +3,13 @@
 
 using System;
 using Basket.Api.Configuration.Consul;
+using Basket.Service;
 using Consul;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Hosting;
 
 namespace Basket.Api.Configuration
 {
@@ -19,6 +21,8 @@ namespace Basket.Api.Configuration
 
             serviceCollection.Configure<ConsulOptions>(configuration.GetSection("Consul"));
 
+            
+            //serviceCollection.AddHttpClient<IConsulHttpClient, ConsulHttpClient>();
             return serviceCollection.AddSingleton<IConsulClient>(c => new ConsulClient(cfg =>
             {
                 if (!string.IsNullOrEmpty(consulConfigOptions.Host))
@@ -28,7 +32,7 @@ namespace Basket.Api.Configuration
             }));
         }
         
-        public static IApplicationBuilder UseConsul(this IApplicationBuilder app, IConfiguration configuration)
+        public static IApplicationBuilder UseConsul(this IApplicationBuilder app,IHostApplicationLifetime lifetime, IConfiguration configuration)
         {
             using (var scope = app.ApplicationServices.CreateScope())
             {
@@ -76,6 +80,10 @@ namespace Basket.Api.Configuration
                 }
 
                 client.Agent.ServiceRegister(consulServiceRegistration);
+                lifetime.ApplicationStopping.Register(() =>
+                {
+                    client.Agent.ServiceDeregister(consulServiceRegistration.ID).Wait();
+                });
 
                 return app;
             }

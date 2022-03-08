@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Basket.Dto\Basket.Dto.csproj" />
+      <ProjectReference Include="..\Basket.Service\Basket.Service.csproj" />
     </ItemGroup>
 
 
