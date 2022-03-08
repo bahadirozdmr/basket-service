@@ -1,0 +1,12 @@
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/bin/Debug/netstandard2.1/Basket.Service.deps.json
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/bin/Debug/netstandard2.1/Basket.Service.dll
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/bin/Debug/netstandard2.1/Basket.Service.pdb
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/bin/Debug/netstandard2.1/Basket.Dto.dll
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/bin/Debug/netstandard2.1/Basket.Dto.pdb
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/obj/Debug/netstandard2.1/Basket.Service.csprojAssemblyReference.cache
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/obj/Debug/netstandard2.1/Basket.Service.AssemblyInfoInputs.cache
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/obj/Debug/netstandard2.1/Basket.Service.AssemblyInfo.cs
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/obj/Debug/netstandard2.1/Basket.Service.csproj.CoreCompileInputs.cache
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/obj/Debug/netstandard2.1/Basket.Service.csproj.CopyComplete
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/obj/Debug/netstandard2.1/Basket.Service.dll
+/Users/bahadirozdemir/SourceCode/basket-service/Basket.Service/obj/Debug/netstandard2.1/Basket.Service.pdb
